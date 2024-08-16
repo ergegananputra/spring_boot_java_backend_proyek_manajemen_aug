@@ -53,6 +53,8 @@ public class ProyekServiceImpl implements ProyekService {
                 lokasi.setNegara(request.getNegara());
                 lokasi.setProvinsi(request.getProvinsi());
                 lokasi.setKota(request.getKota());
+
+                lokasiRepository.save(lokasi);
             } else {
                 lokasi = lokasiRepository
                         .findById(request.getIdLokasi())

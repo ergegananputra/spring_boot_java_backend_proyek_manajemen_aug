@@ -18,8 +18,19 @@ public class ProyekController {
     private ProyekService proyekService;
 
     @PostMapping("")
-    public Proyek postProyek(@RequestBody RequestProyekLokasi requestProyekLokasi) {
-        return proyekService.createProyek(requestProyekLokasi);
+    public ResponseJSON<Proyek> postProyek(@RequestBody RequestProyekLokasi requestProyekLokasi) {
+        ResponseJSON<Proyek> responseJSON = new ResponseJSON<>();
+
+        try {
+            Proyek proyekCreated = proyekService.createProyek(requestProyekLokasi);
+            responseJSON.setMessage("Data Proyek Berhasil Dibuat");
+            responseJSON.setData(proyekCreated);
+            return responseJSON;
+        } catch (Exception e) {
+            responseJSON.setMessage("Terjadi Kesalahan");
+            responseJSON.setData(null);
+            return responseJSON;
+        }
     }
 
     @GetMapping("")
