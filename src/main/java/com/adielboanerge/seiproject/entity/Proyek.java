@@ -48,7 +48,7 @@ public class Proyek {
     private String keterangan;
 
     @CreationTimestamp
-    @JsonProperty("create_at")
+    @JsonProperty("created_at")
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 

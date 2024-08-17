@@ -39,7 +39,7 @@ public class Lokasi {
     private String kota;
 
     @CreationTimestamp
-    @JsonProperty("create_at")
+    @JsonProperty("created_at")
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
