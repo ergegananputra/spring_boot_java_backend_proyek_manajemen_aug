@@ -16,4 +16,6 @@ public interface ProyekService {
     Proyek deleteProyek(RequestBodyID requestBodyID);
 
     Proyek update(Proyek proyek);
+
+    Proyek getProyek(Integer id);
 }

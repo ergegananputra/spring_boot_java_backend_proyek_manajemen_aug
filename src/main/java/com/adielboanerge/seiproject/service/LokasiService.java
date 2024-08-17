@@ -15,4 +15,6 @@ public interface LokasiService {
     Lokasi update(Lokasi lokasi);
 
     Lokasi delete(RequestBodyID requestBodyID);
+
+    Lokasi getLokasi(Integer id);
 }

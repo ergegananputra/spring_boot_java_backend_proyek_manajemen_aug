@@ -125,4 +125,20 @@ public class ProyekServiceImpl implements ProyekService {
         proyekRepository.save(proyekToUpdate);
         return proyekToUpdate;
     }
+
+    @Override
+    public Proyek getProyek(Integer id) {
+        return proyekRepository
+                .findById(id)
+                .orElseThrow(
+                        () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Proyek tidak ditemukan")
+                );
+    }
+
+    @Override
+    public List<Proyek> searchProyek(String keyword) {
+        Proyek proyek = new Proyek();
+
+        return proyekRepository.searchByKeyword(keyword);
+    }
 }

@@ -64,5 +64,20 @@ public class LokasiServiceImpl implements LokasiService {
         return lokasi;
     }
 
+    @Override
+    public Lokasi getLokasi(Integer id) {
+        if (id == null) {
+            throw new RuntimeException("ID Lokasi tidak boleh kosong");
+        }
+
+        Lokasi lokasi = lokasiRepository
+                .findById(id)
+                .orElseThrow(
+                        () -> new RuntimeException("Lokasi tidak ditemukan")
+                );
+
+        return lokasi;
+    }
+
 
 }

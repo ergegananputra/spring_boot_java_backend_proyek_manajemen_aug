@@ -86,4 +86,20 @@ public class LokasiController {
             return responseJSON;
         }
     }
+
+    @GetMapping("/{id}")
+    public ResponseJSON<Lokasi> getLokasi(@PathVariable Integer id) {
+        ResponseJSON<Lokasi> responseJSON = new ResponseJSON<>();
+
+        try {
+            Lokasi lokasi = lokasiService.getLokasi(id);
+            responseJSON.setMessage("Data Lokasi Ditemukan");
+            responseJSON.setData(lokasi);
+            return responseJSON;
+        } catch (Exception e) {
+            responseJSON.setMessage("Terjadi Kesalahan");
+            responseJSON.setData(null);
+            return responseJSON;
+        }
+    }
 }

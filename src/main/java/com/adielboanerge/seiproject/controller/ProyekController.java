@@ -85,4 +85,20 @@ public class ProyekController {
             return responseJSON;
         }
     }
+
+    @GetMapping("/{id}")
+    public ResponseJSON<Proyek> getProyek(@PathVariable Integer id) {
+        ResponseJSON<Proyek> responseJSON = new ResponseJSON<>();
+
+        try {
+            Proyek proyek = proyekService.getProyek(id);
+            responseJSON.setMessage("Data Proyek Ditemukan");
+            responseJSON.setData(proyek);
+            return responseJSON;
+        } catch (Exception e) {
+            responseJSON.setMessage("Terjadi Kesalahan");
+            responseJSON.setData(null);
+            return responseJSON;
+        }
+    }
 }
