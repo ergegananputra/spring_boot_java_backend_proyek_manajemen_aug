@@ -134,11 +134,4 @@ public class ProyekServiceImpl implements ProyekService {
                         () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Proyek tidak ditemukan")
                 );
     }
-
-    @Override
-    public List<Proyek> searchProyek(String keyword) {
-        Proyek proyek = new Proyek();
-
-        return proyekRepository.searchByKeyword(keyword);
-    }
 }
